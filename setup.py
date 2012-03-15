@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 import os
 
 root_dir = os.path.dirname(__file__)
@@ -14,7 +14,7 @@ for dirpath, dirnames, filenames in os.walk('endless_pagination'):
     elif filenames:
         for f in filenames:
             data_files.append(os.path.join(dirpath[len("endless_pagination")+1:], f))
-            
+
 version = "%s.%s" % __import__('endless_pagination').VERSION[:2]
 
 setup(name='django-endless-pagination',
@@ -25,7 +25,7 @@ setup(name='django-endless-pagination',
     url='http://code.google.com/p/django-endless-pagination/',
     zip_safe=False,
     packages=[
-        'endless_pagination', 
+        'endless_pagination',
         'endless_pagination.templatetags',
     ],
     package_data={'endless_pagination': data_files},
